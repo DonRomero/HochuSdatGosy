@@ -55,6 +55,42 @@ public class CommunityCrud {
         return null;
     }
 
+    public List<Community> readAllByName(String name) {
+        ArrayList<Community> communities = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.query(
+                DBhelper.TABLE_COMMUNITY,
+                null,
+                "name = ?",
+                new String[]{name},
+                null,
+                null,
+                null
+        );
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idIndex = cursor.getColumnIndex("id");
+                int nameIndex = cursor.getColumnIndex("name");
+                int photoIndex = cursor.getColumnIndex("photo");
+
+                int id = cursor.getInt(idIndex);
+//                String name = cursor.getString(nameIndex);
+                String photo = cursor.getString(photoIndex);
+
+                Community community = new Community();
+                community.setId(id);
+                community.setName(name);
+                community.setPhoto(photo);
+
+                communities.add(community);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return communities;
+    }
+
     public List<Community> readAll() {
         ArrayList<Community> communities = new ArrayList<>();
 

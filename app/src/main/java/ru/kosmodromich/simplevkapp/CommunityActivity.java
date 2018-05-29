@@ -21,17 +21,20 @@ import java.util.List;
 import ru.kosmodromich.simplevkapp.Adapters.CommunityAdapter;
 import ru.kosmodromich.simplevkapp.Entities.Community;
 import ru.kosmodromich.simplevkapp.Entities.RequestCommunityData;
+import ru.kosmodromich.simplevkapp.db.CommunityCrud;
 
 public class CommunityActivity extends AppCompatActivity {
 
     List<Community> groups;
     CommunityAdapter communityAdapter;
+    CommunityCrud communityCrud;
     RequestCommunityData requestCommunityData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community);
+        communityCrud = new CommunityCrud(this);
         getSupportActionBar().setHomeButtonEnabled(true);
         RecyclerView recyclerView = findViewById(R.id.community_list);
         requestCommunityData = getIntent().getParcelableExtra("data");
@@ -83,11 +86,13 @@ public class CommunityActivity extends AppCompatActivity {
                     community.setName(obj.getString("name"));
                     community.setPhoto(photo);
                     communities.add(community);
+
+                    communityCrud.create(community);
                 }
                 return communities;
             } catch (Exception e) {
                 Log.e("Exception", e.toString());
-                return null;
+                return communityCrud.readAllByName(requestCommunityData.getName());
             }
         }
 

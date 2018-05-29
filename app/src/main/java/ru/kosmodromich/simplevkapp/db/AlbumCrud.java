@@ -60,6 +60,43 @@ public class AlbumCrud {
         return null;
     }
 
+    public List<Album> readByOwnerId(int ownerId) {
+        Cursor cursor = sqLiteDatabase.query(
+                DBhelper.TABLE_ALBUM,
+                null,
+                "ownerId = ?",
+                new String[]{String.valueOf(ownerId)},
+                null,
+                null,
+                null
+        );
+
+        List<Album> albums = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idIndex = cursor.getColumnIndex("id");
+                int titleIndex = cursor.getColumnIndex("title");
+                int photoIndex = cursor.getColumnIndex("photo");
+
+                int id = cursor.getInt(idIndex);
+                String title = cursor.getString(titleIndex);
+                String photo = cursor.getString(photoIndex);
+
+                Album album = new Album();
+                album.setId(id);
+                album.setTitle(title);
+                album.setPhoto(photo);
+                album.setOwnerId(ownerId);
+
+                albums.add(album);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return albums;
+    }
+
     public List<Album> readAll() {
         ArrayList<Album> albums = new ArrayList<>();
 

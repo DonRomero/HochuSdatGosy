@@ -87,11 +87,13 @@ public class AlbumActivity extends AppCompatActivity {
                     album.setPhoto(photo);
                     album.setOwnerId(ownerId);
                     albums.add(album);
+
+                    albumCrud.create(album);
                 }
                 return albums;
             } catch (Exception e) {
                 Log.e("Exception", e.toString());
-                return null;
+                return albumCrud.readByOwnerId(ownerId);
             }
         }
 
