@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -35,7 +36,7 @@ public class CommunityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community);
         communityCrud = new CommunityCrud(this);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         RecyclerView recyclerView = findViewById(R.id.community_list);
         requestCommunityData = getIntent().getParcelableExtra("data");
         groups = new ArrayList<>();

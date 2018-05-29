@@ -1,64 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="70dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/community_name"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Название сообщества"
-        android:textSize="20dp" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <!--<TextView-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <EditText
+            android:id="@+id/community_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название сообщества"
+            android:textSize="20dp" />
+
+        <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_marginTop="15dp"-->
         <!--android:text="Возраст:"-->
         <!--android:textSize="20dp" />-->
 
-    <!--<LinearLayout-->
+        <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:orientation="horizontal">-->
 
         <!--<EditText-->
-            <!--android:id="@+id/left_age"-->
-            <!--android:layout_width="140dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:gravity="top"-->
-            <!--android:hint="От"-->
-            <!--android:textSize="20dp"-->
-            <!--android:inputType="textMultiLine" />-->
+        <!--android:id="@+id/left_age"-->
+        <!--android:layout_width="140dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:gravity="top"-->
+        <!--android:hint="От"-->
+        <!--android:textSize="20dp"-->
+        <!--android:inputType="textMultiLine" />-->
 
         <!--<EditText-->
-            <!--android:id="@+id/right_age"-->
-            <!--android:layout_width="140dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:textSize="20dp"-->
-            <!--android:gravity="top"-->
-            <!--android:hint="До"-->
-            <!--android:inputType="textMultiLine" />-->
-    <!--</LinearLayout>-->
+        <!--android:id="@+id/right_age"-->
+        <!--android:layout_width="140dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:textSize="20dp"-->
+        <!--android:gravity="top"-->
+        <!--android:hint="До"-->
+        <!--android:inputType="textMultiLine" />-->
+        <!--</LinearLayout>-->
 
-    <!--<TextView-->
+        <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_marginTop="15dp"-->
         <!--android:text="Город:"-->
         <!--android:textSize="20dp" />-->
 
-    <!--<EditText-->
+        <!--<EditText-->
         <!--android:id="@+id/user_city"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
@@ -68,7 +83,7 @@
         <!--android:textSize="20dp"-->
         <!--android:inputType="textMultiLine" />-->
 
-    <!--<CheckBox-->
+        <!--<CheckBox-->
         <!--android:id="@+id/only_online"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_marginTop="20dp"-->
@@ -76,17 +91,18 @@
         <!--android:text="Только онлайн?"-->
         <!--android:textSize="20dp"/>-->
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
-
-        <Button
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Поиск"
-            android:textSize="20dp" />
-    </RelativeLayout>
+            android:layout_marginTop="25dp">
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Поиск"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

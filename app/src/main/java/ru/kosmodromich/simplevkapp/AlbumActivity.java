@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -35,7 +36,7 @@ public class AlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community);
         albumCrud = new AlbumCrud(this);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         RecyclerView recyclerView = findViewById(R.id.community_list);
         ownerId = getIntent().getIntExtra("ownerId", 0);
         groupAlbums = new ArrayList<>();
